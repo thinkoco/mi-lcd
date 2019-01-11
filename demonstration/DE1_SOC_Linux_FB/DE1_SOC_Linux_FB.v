@@ -217,7 +217,8 @@ wire  [1:0]  fpga_debounced_buttons;
 wire  [3:0]  fpga_led_internal;
 wire         hps_fpga_reset_n;
  
-wire               clk_27;
+wire               clk_30;
+wire               clk_30_out;
 wire [7:0]         vid_r,vid_g,vid_b;
 wire               vid_v_sync ;
 wire               vid_h_sync ;
@@ -228,7 +229,7 @@ wire               vid_datavalid;
 //=======================================================      
 
 assign   LCD_ENABLE          =     vid_datavalid;	
-assign   LCD_PCLK            =     clk_27;
+assign   LCD_PCLK            =     clk_30_out;
 assign   LCD_DATA            =     {vid_r,vid_g,vid_b};
 assign   LCD_RD_VSD          =     ~vid_v_sync;
 assign   LCD_RS_HSD          =     ~vid_h_sync;
@@ -246,10 +247,11 @@ debounce debounce_inst (
  defparam debounce_inst.TIMEOUT_WIDTH = 16;     // ceil(log2(TIMEOUT))
 
  
-vga_pll  vga_pll_inst(
+lcd_pll  lcd_pll_inst(
 			.refclk(CLOCK4_50),   //  refclk.clk
 		   .rst(1'b0),      //   reset.reset
-		   .outclk_0(clk_27), // outclk0.clk
+		   .outclk_0(clk_30), // outclk0.clk
+			.outclk_1(clk_30_out), // outclk1.clk
 		   .locked()    //  locked.export
 );
 
@@ -349,7 +351,7 @@ soc_system u0 (
 		  .touch_i2c_export_scl_pad_io               (TOUCH_SCK),               //                  touch_i2c_export.scl_pad_io
 		  .touch_i2c_export_sda_pad_io                 (TOUCH_SDA),                //                                  .sda_pad_io
 		  //itc
-		  .alt_vip_itc_0_clocked_video_vid_clk         (clk_27),         					 	 // alt_vip_itc_0_clocked_video.vid_clk
+		  .alt_vip_itc_0_clocked_video_vid_clk         (clk_30),         					 	 // alt_vip_itc_0_clocked_video.vid_clk
         .alt_vip_itc_0_clocked_video_vid_data        ({vid_r,vid_g,vid_b}),        		 //                .vid_data
         .alt_vip_itc_0_clocked_video_underflow       (),                           		 //                .underflow
         .alt_vip_itc_0_clocked_video_vid_datavalid   (vid_datavalid),                   //                .vid_datavalid
