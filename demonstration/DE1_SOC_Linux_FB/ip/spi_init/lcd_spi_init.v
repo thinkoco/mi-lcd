@@ -7,7 +7,7 @@
 module lcd_spi_init#(
     parameter CLK_DIV   = 32    ,   // clock frequency division
     parameter SPI_BITS  = 9     ,   // the bits number per a spi data 
-    parameter WRITE_NUM = 149   ,   // number of spi writing data
+    parameter WRITE_NUM = 151   ,   // number of spi writing data
     parameter DELAY_NUM = 5000      // for delay cnt, spi_sclk
     )
     (
@@ -20,13 +20,13 @@ module lcd_spi_init#(
 
 parameter  CMD  = 1'b0;
 parameter  DATA = 1'b1;
-parameter  DELAY_POINTER_0 = 147;
-parameter  DELAY_POINTER_1 = 148;
+parameter  DELAY_POINTER_0 = 149;
+parameter  DELAY_POINTER_1 = 150;
 
 
 parameter  IDLE     = 2'b10;
 parameter  SEND     = 2'b11;
-parameter  WAITE    = 2'b01;
+parameter  WAIT     = 2'b01;
 parameter  DELAY    = 2'b00;
 
 reg                                 spi_cs      ;
@@ -87,11 +87,11 @@ begin
                             spi_cnt                     <= spi_cnt - 1'b1           ;
                             steps                       <= SEND                     ;
                         end else begin
-                            steps       <=  WAITE   ;
+                            steps       <=  WAIT    ;
                             spi_cs      <=  1'b1    ;
                         end
                     end
-            WAITE   : begin
+            WAIT    : begin
                         lut_addr    <=  lut_addr + 1'b1 ;
                         spi_cs      <=  1'b1            ;
                         if((lut_addr == DELAY_POINTER_0 - 1) || (lut_addr == DELAY_POINTER_1 - 1)) begin
@@ -259,20 +259,24 @@ begin
     132 :   lut_data    <=  {DATA   , 8'h00};
     133 :   lut_data    <=  {DATA   , 8'h03};
     134 :   lut_data    <=  {DATA   , 8'h55};
-    135 :   lut_data    <=  {CMD    , 8'h37};
+
+    135 :   lut_data    <=  {CMD    , 8'hB5};
     136 :   lut_data    <=  {DATA   , 8'h00};
-    137 :   lut_data    <=  {DATA   , 8'h10};
-    138 :   lut_data    <=  {CMD    , 8'h2B};
+    137 :   lut_data    <=  {DATA   , 8'h16};
+    138 :   lut_data    <=  {DATA   , 8'h2e};
     139 :   lut_data    <=  {DATA   , 8'h00};
-    140 :   lut_data    <=  {DATA   , 8'h00};
-    141 :   lut_data    <=  {DATA   , 8'h01};
-    142 :   lut_data    <=  {DATA   , 8'hDF};
-    143 :   lut_data    <=  {CMD    , 8'h3A};
-    144 :   lut_data    <=  {DATA   , 8'h77};
-    145 :   lut_data    <=  {CMD    , 8'hB6};
-    146 :   lut_data    <=  {DATA   , 8'hA2};
-    147 :   lut_data    <=  {CMD    , 8'h11};
-    148 :   lut_data    <=  {CMD    , 8'h29};
+
+    140 :   lut_data    <=  {CMD    , 8'h2B};
+    141 :   lut_data    <=  {DATA   , 8'h00};
+    142 :   lut_data    <=  {DATA   , 8'h00};
+    143 :   lut_data    <=  {DATA   , 8'h01};
+    144 :   lut_data    <=  {DATA   , 8'hDF};
+    145 :   lut_data    <=  {CMD    , 8'h3A};
+    146 :   lut_data    <=  {DATA   , 8'h77};
+    147 :   lut_data    <=  {CMD    , 8'hB6};
+    148 :   lut_data    <=  {DATA   , 8'hA2};
+    149 :   lut_data    <=  {CMD    , 8'h11};
+    150 :   lut_data    <=  {CMD    , 8'h29};
 /*
     149 :   lut_data    <=  {DATA   , 8'h};
     150 :   lut_data    <=  {DATA   , 8'h};

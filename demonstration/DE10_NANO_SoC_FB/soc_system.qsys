@@ -427,10 +427,10 @@
   <parameter name="F_RISING_EDGE" value="0" />
   <parameter name="GENERATE_SYNC" value="0" />
   <parameter name="H_ACTIVE_PIXELS" value="854" />
-  <parameter name="H_BACK_PORCH" value="20" />
+  <parameter name="H_BACK_PORCH" value="16" />
   <parameter name="H_BLANK" value="0" />
-  <parameter name="H_FRONT_PORCH" value="20" />
-  <parameter name="H_SYNC_LENGTH" value="2" />
+  <parameter name="H_FRONT_PORCH" value="156" />
+  <parameter name="H_SYNC_LENGTH" value="30" />
   <parameter name="INTERLACED" value="0" />
   <parameter name="NO_OF_MODES" value="1" />
   <parameter name="NUMBER_OF_COLOUR_PLANES" value="4" />
@@ -439,10 +439,10 @@
   <parameter name="USE_CONTROL" value="0" />
   <parameter name="USE_EMBEDDED_SYNCS" value="0" />
   <parameter name="V_ACTIVE_LINES" value="480" />
-  <parameter name="V_BACK_PORCH" value="8" />
+  <parameter name="V_BACK_PORCH" value="10" />
   <parameter name="V_BLANK" value="0" />
-  <parameter name="V_FRONT_PORCH" value="8" />
-  <parameter name="V_SYNC_LENGTH" value="2" />
+  <parameter name="V_FRONT_PORCH" value="22" />
+  <parameter name="V_SYNC_LENGTH" value="13" />
  </module>
  <module name="alt_vip_vfr_hdmi" kind="alt_vip_vfr" version="14.0" enabled="1">
   <parameter name="AUTO_CLOCK_MASTER_CLOCK_RATE" value="50000000" />

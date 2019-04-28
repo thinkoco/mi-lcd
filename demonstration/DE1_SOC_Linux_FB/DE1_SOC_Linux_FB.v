@@ -364,7 +364,7 @@ soc_system u0 (
     );
 
 
-lcd_spi_init#(32, 9, 149, 5000) spi_initial
+lcd_spi_init#(32, 9, 151, 5000) spi_initial
     (
     .clk     (CLOCK_50),   //  system clock
     .rst_n   (1'b1),   //  system reset
