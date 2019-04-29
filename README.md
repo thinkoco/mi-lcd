@@ -15,6 +15,46 @@ MI-LCD is a multiple interface: DBI Type B Parallel Interface (intel 8080), DBI 
 - teraisc DE-series boards 2x20 GPIO Pins
 - Arduino Pins with Intel 8080 8-bits bus and touch i2c
 
+## Compatibility Table
+
+|      Boards & Pins     |SPI 3wire |i80-8b |i80-9b |i80-16b |i80-18b |i80-24b |RGB-16b |RGB-18b |RGB-24b |
+|:---------------------- |:--------:|:-----:|:-----:|:------:|:------:|:------:|:------:|:------:|:------:|
+| DE10-Nano GPIO_0/1     |    `√`   |  `√`  |   √   |   √    |   √    |   `√`  |    √   |    √   |   `√`  |
+| DE1-SoC GPIO_0/1       |     √    |   √   |   √   |   √    |   √    |    √   |    √   |    √   |   `√`  |
+| DE0-Nano-SoC GPIO_0/1  |     √    |   √   |   √   |   √    |   √    |    √   |    √   |    √   |    √   |
+| DE10-Standard GPIO     |     √    |   √   |   √   |   √    |   √    |    √   |    √   |    √   |    √   |
+| DE0-Nano GPIO          |     √    |   √   |   √   |   √    |   √    |    √   |    √   |    √   |    √   |
+| DE0-CV GPIO            |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| DE0 GPIO_0/1           |     √    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| DE1 GPIO_0/1           |     √    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| DE2 GPIO_0/1           |     √    |   √   |   √   |   √    |   √    |    √   |    √   |    √   |    √   |
+| DE2-70 GPIO_0/1        |     √    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| DE10-Lite GPIO         |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| DE2-115 GPIO           |     √    |   √   |   √   |   √    |   √    |    √   |    √   |    √   |    √   |
+| DE2i-150 GPIO          |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| C5G GPIO               |     √    |   √   |   √   |   √    |   √    |    √   |    √   |    √   |    √   |
+| ADC-SoC GPIO           |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| OpenVINO GPIO          |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| C10EFP-LP GPIO         |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| Terasic TR4 GPIO       |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| Terasic DE3 GPIO       |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| Terasic DE4 GPIO       |     ?    |   ?   |   ?   |   ?    |   ?    |    ?   |    ?   |    ?   |    ?   |
+| DE10-Nano Arduino      |     √    |   √   |   ×   |   ×    |   ×    |    ×   |    ×   |    ×   |    ×   |
+| DE0-Nano-SoC Arduino   |     √    |   √   |   ×   |   ×    |   ×    |    ×   |    ×   |    ×   |    ×   |
+| DE10-Lite Arduino      |     √    |   √   |   ×   |   ×    |   ×    |    ×   |    ×   |    ×   |    ×   |
+| ADC-SoC Arduino        |     ?    |   ?   |   ×   |   ×    |   ×    |    ×   |    ×   |    ×   |    ×   |
+| OpenVINO Arduino       |     ?    |   ?   |   ×   |   ×    |   ×    |    ×   |    ×   |    ×   |    ×   |
+| C10EFP-LP Arduino      |     ?    |   ?   |   ×   |   ×    |   ×    |    ×   |    ×   |    ×   |    ×   |
+
+
+`√`: Pin compatible and had been tested
+
+√ : Pin compatible, not tested
+
+× : Pin not compatible
+
+? : not sure
+
 ## PCB layout
 ![](picture/pcb.png)
 
