@@ -1,0 +1,165 @@
+/*
+ * Copyright Altera Corporation (C) 2015. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms and conditions of the GNU General Public License,
+ * version 2, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "socfpga_cyclone5.dtsi"
+
+/ {
+	model = "Terasic DE10_NANO)";
+	compatible = "terasic,de0-atlas", "altr,socfpga-cyclone5", "altr,socfpga";
+
+	chosen {
+		bootargs = "earlyprintk";
+		stdout-path = "serial0:115200n8";
+	};
+
+	memory@0 {
+		name = "memory";
+		device_type = "memory";
+		reg = <0x0 0x40000000>; /* 1GB */
+	};
+
+	aliases {
+		ethernet0 = &gmac1;
+	};
+
+	regulator_3_3v: 3-3-v-regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "3.3V";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+	};
+
+	soc {
+		hps_0_bridges: bridge@0xc0000000 {
+			compatible = "altr,bridge-14.1", "simple-bus";
+			reg = <0xc0000000 0x20000000>,
+				<0xff200000 0x00200000>;
+			reg-names = "axi_h2f", "axi_h2f_lw";
+			#address-cells = <2>;
+			#size-cells = <1>;
+			ranges = <0x00000000 0x00000000 0xc0000000 0x00010000>,
+				<0x00000001 0x00000000 0xFF200000 0x00000020>,//opencores i2c
+				<0x00000001 0x00000020 0xFF200020 0x00000010>,//pio_interrupt
+				<0x00000001 0x00000040 0xFF200040 0x0000001f>,
+				<0x00000001 0x00000060 0xFF200060 0x0000000f>,
+				<0x00000001 0x00031000 0xFF231000 0x00000080>;
+
+           		 i2c_ocre: ocores@0x00 {
+				#address-cells = <1>;
+				#size-cells = <0>;
+				compatible = "opencores,i2c-ocores";
+				reg = <0x00000001 0x00000000 0x20>;
+				interrupts = <0 44 1>;
+				clock-frequency = <50000000>;
+				reg-shift = <2>;
+				reg-io-width = <4>;
+				ft5x16_ts@0x38 {
+					compatible = "ft5x16_ts";	
+					reg = < 0x38 >;
+					interrupt-base = <0xFF200020>;
+					interrupts = <0 43 1>; //pio_interrupt
+					//interrupts = < 0 >;	
+					//interrupt-parent = < &touch_panel_pen_irq_n >;	
+				}; //end ts@0 (ts0)
+			 }; 
+
+			mi_lcd_1: mi_lcd@0x100 {	
+				compatible = "ilitek,ili9806";
+				reg = <0x00000001 0x00000040 0x0f >;
+				max-width = < 854 >;	
+				max-height = < 480 >;	
+				bits-per-color = < 8 >;				
+				};
+
+			board_irq_ctrl_0: unknown@0x10000cfa0 {
+				compatible = "altr,c5soc_opencl";
+				interrupt-parent = <&intc>;
+				interrupts = <0 40 4>;
+				interrupt-controller;
+				#interrupt-cells = <1>;
+				}; //end unknown@0x10000cfa0 (board_irq_ctrl_0)
+
+		}; //end bridge@0xc0000000 (hps_0_bridges)
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		hps0 {
+			label = "hps_led0";
+			gpios = <&portb 24 0>;
+			linux,default-trigger = "heartbeat";
+		};
+	};
+};
+
+&gmac1 {
+	status = "okay";
+	phy-mode = "rgmii";
+
+	txd0-skew-ps = <0>; /* -420ps */
+	txd1-skew-ps = <0>; /* -420ps */
+	txd2-skew-ps = <0>; /* -420ps */
+	txd3-skew-ps = <0>; /* -420ps */
+	rxd0-skew-ps = <420>; /* 0ps */
+	rxd1-skew-ps = <420>; /* 0ps */
+	rxd2-skew-ps = <420>; /* 0ps */
+	rxd3-skew-ps = <420>; /* 0ps */
+	txen-skew-ps = <0>; /* -420ps */
+	txc-skew-ps = <1860>; /* 960ps */
+	rxdv-skew-ps = <420>; /* 0ps */
+	rxc-skew-ps = <1680>; /* 780ps */
+
+	max-frame-size = <3800>;
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+&gpio2 {
+	status = "okay";
+};
+
+&i2c0 {
+	status = "okay";
+	clock-frequency = <100000>;
+
+	adxl345: adxl345@0 {
+		compatible = "adi,adxl345";
+		reg = <0x53>;
+
+		interrupt-parent = <&portc>;
+		interrupts = <3 2>;
+	};
+};
+
+&mmc0 {
+	vmmc-supply = <&regulator_3_3v>;
+	vqmmc-supply = <&regulator_3_3v>;
+	status = "okay";
+};
+
+&uart0 {
+	status = "okay";
+};
+
+&usb1 {
+	status = "okay";
+};
