@@ -66,7 +66,7 @@ MI-LCD is a multiple interface: DBI Type B Parallel Interface (intel 8080), DBI 
 - [x] DE10-Nano Nios II with Intel 8080 8-bits bus
 - [x] DE10-Nano Nios II with SPI
 - [ ] DE1-SoC Nios II with DPI interface (RGB)
-- [ ] Linux tinydrm driver for MI-LCD with Intel 8080 24-bits bus (DBI Type B Parallel Interface)
+- [x] Linux tinydrm driver for MI-LCD with Intel 8080 24-bits bus (DBI Type B Parallel Interface)
 
 ## How to use
 
