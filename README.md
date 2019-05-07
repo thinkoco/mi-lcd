@@ -1,13 +1,13 @@
 # Multi-Interface LCD
 MI-LCD is a multiple interface: DBI Type B Parallel Interface (intel 8080), DBI Type C Serial Interface (3-wire SPI) and DPI Interface ( RGB) 5 inch TFT LCD capacitive touch screen module which is compatible with teraisc DE-series boards 
 
-![](picture/de1soc_linux.png)
+![](figure/de1soc_linux.png)
 
 ## Features
 - 5 inch TFT LCD with 480(RGB)*854(line)
 - capacitive touch screen with 5 points touch
 - ili9806g and ft5x16 chips
-- similar to terasic MTL2 and LT24
+- similar to terasic MTL2 and LT24 (two in one)
 - support DBI Tpye B display interface (Intel 8080 8-bits,9-bits,16-bits,18-bits,24-bits bus) 
 - support DBI Tpye C display interface (3-wire SPI)
 - support DPI display interface (RGB), 16/18/24-bit Pixel Format with SPI initialization
@@ -56,7 +56,7 @@ MI-LCD is a multiple interface: DBI Type B Parallel Interface (intel 8080), DBI 
 ? : not sure
 
 ## PCB layout
-![](picture/pcb.png)
+![](figure/pcb.png)
 
 ## Plans
 
@@ -66,7 +66,7 @@ MI-LCD is a multiple interface: DBI Type B Parallel Interface (intel 8080), DBI 
 - [x] DE10-Nano Nios II with Intel 8080 8-bits bus
 - [x] DE10-Nano Nios II with SPI
 - [x] DE1-SoC Nios II with DPI interface (RGB)
-- [x] Linux tinydrm driver for MI-LCD with Intel 8080 24-bits bus (DBI Type B Parallel Interface)
+- [x] Linux tinydrm ili9806 driver for MI-LCD with Intel 8080 24-bits bus (DBI Type B Parallel Interface)
 
 ## How to use
 
