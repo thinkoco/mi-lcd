@@ -70,6 +70,8 @@ MI-LCD is a multiple interface: DBI Type B Parallel Interface (intel 8080), DBI 
 
 ## How to use
 
+1. [How to use](documents/how_to_use.md)
+
 ## MTL2 and LT24
 
 - [MTL2](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=68&No=989)
