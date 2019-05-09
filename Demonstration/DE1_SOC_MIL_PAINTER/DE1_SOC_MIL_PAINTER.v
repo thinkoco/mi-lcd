@@ -2,7 +2,7 @@
 //`define ENABLE_HPS
 //`define ENABLE_USB
 
-module DE1_SoC_MI_LCD_PAINTER(
+module DE1_SOC_MIL_PAINTER(
 
       ///////// ADC /////////
       inout              ADC_CS_N,
@@ -177,7 +177,7 @@ module DE1_SoC_MI_LCD_PAINTER(
       output             VGA_SYNC_N,
       output             VGA_VS,
 
-//////////// GPIO, GPIO1 connect to MI_LCD - Multi-Touch LCD Panel //////////     
+//////////// GPIO, GPIO1 connect to MIL_PAINTER - Multi-Touch LCD Panel //////////     
         input                       LCD_TE,
         inout                       LCD_SDI,
         output                  LCD_WR_SCLK,
@@ -217,7 +217,7 @@ lcd_pll  lcd_pll_inst(
            .locked()    //  locked.export
 );
 
- MI_LCD u0(
+ MIL_PAINTER u0(
         .reset_n(KEY[1]),                                  //               clk_50_clk_in_reset.reset_n
         .clk_50(CLOCK_50),                                   //                     clk_50_clk_in.clk
         .pll_sdram_clk(DRAM_CLK),                             //                         pll_sdram.clk

@@ -1,7 +1,7 @@
 
 //`define ENABLE_HPS
 
-module DE10_Nano_milcd_spi(
+module DE10_NANO_MIL_8bits(
 
       ///////// ADC /////////
       output             ADC_CONVST,
@@ -34,7 +34,6 @@ module DE10_Nano_milcd_spi(
 		output					TOUCH_SCK,
 		inout						TOUCH_SDA,
 		input						TOUCH_INT,
-
       ///////// HDMI /////////
       inout              HDMI_I2C_SCL,
       inout              HDMI_I2C_SDA,
@@ -116,25 +115,23 @@ module DE10_Nano_milcd_spi(
 //  REG/WIRE declarations
 //=======================================================
 
-
 //=======================================================
 //  Structural coding
 //=======================================================
+
 	nios2_system u0 (
-		.clk_clk                     (FPGA_CLK1_50),                     //                  clk.clk
-		.reset_reset_n               (KEY[0]),               //                reset.reset_n
+		.clk_clk              	(FPGA_CLK1_50)					,	//         clk.clk
+		.reset_reset_n        	(KEY[0])							,  //       reset.reset_n
+		
+		.lcd_pin_out_LCD_WR_n  	(LCD_WR_SCLK)							, 	// lcd_pin_out.LCD_WR_n
+		.lcd_pin_out_LCD_REST_n ()						, 	//            .LCD_REST_n
+		.lcd_pin_out_LCD_RS   	(LCD_RS_HSD)							, 	//            .LCD_RS
+		.lcd_pin_out_LCD_CS_n 	(LCD_CS)							, 	//            .LCD_CS_n
+		.lcd_pin_out_LCD_DATA 	(LCD_DATA[7:0])						, 	//            .LCD_DATA
+		.lcd_pin_out_LCD_RD_n  	(LCD_RD_VSD)  						   //            .LCD_RD_n
 
-		.lcd_spi_external_SCLK       (LCD_WR_SCLK),       //                     .SCLK
-		.lcd_spi_external_SS_n       (LCD_CS),       //                     .SS_n		
-		.lcd_spi_external_MOSI       (LCD_SDI),       //                     .MOSI
-		.lcd_spi_external_MISO       (),       //     lcd_spi_external.MISO
-
-
-
-		.touch_i2c_i2c_serial_sda_in (), // touch_i2c_i2c_serial.sda_in
-		.touch_i2c_i2c_serial_scl_in (), //                     .scl_in
-		.touch_i2c_i2c_serial_sda_oe (), //                     .sda_oe
-		.touch_i2c_i2c_serial_scl_oe ()  //                     .scl_oe
 	);
+
+
 
 endmodule

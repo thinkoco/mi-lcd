@@ -3,4 +3,4 @@ QUARTUS_VERSION = "14.0"
 
 # Revisions
 
-PROJECT_REVISION = "DE10_Nano_milcd_8bits"
+PROJECT_REVISION = "DE10_NANO_MIL_spi"

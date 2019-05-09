@@ -1342,7 +1342,7 @@
    start="hps_0.h2f_lw_axi_master"
    end="alt_vip_vfr_vga.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0100" />
+  <parameter name="baseAddress" value="0x31000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection

@@ -1,6 +1,6 @@
 `default_nettype none
 
-module DE10_NANO_SOC_i80(
+module DE10_NANO_Linux_i80(
 
 	//////////// CLOCK //////////
 	input 		          		FPGA_CLK1_50,
