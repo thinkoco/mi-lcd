@@ -6,7 +6,7 @@
         <BspGeneratedUnixTimeStamp>1546167441048</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>/home/knat/terasic/tmp/DE1_SoC_MI_LCD_PAINTER/software/tftlcd_ili9806g_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
-        <SopcDesignFile>../../MI_LCD.sopcinfo</SopcDesignFile>
+        <SopcDesignFile>../../MIL_PAINTER.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>cpu</Cpu>
         <SchemaVersion>1.9</SchemaVersion>

@@ -5,7 +5,7 @@
 BSP_TYPE=hal
 BSP_DIR=.
 SOPC_DIR=../../
-SOPC_FILE=../../MI_LCD.sopcinfo
+SOPC_FILE=../../MIL_PAINTER.sopcinfo
 NIOS2_BSP_ARGS=""
 CPU_NAME=
 

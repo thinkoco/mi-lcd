@@ -101,7 +101,7 @@ ACDS_VERSION := 18.1
 # BUILD_NUMBER: 625
 
 SETTINGS_FILE := settings.bsp
-SOPC_FILE := ../../MI_LCD.sopcinfo
+SOPC_FILE := ../../MIL_PAINTER.sopcinfo
 
 #-------------------------------------------------------------------------------
 #                             TOOL & COMMAND DEFINITIONS
