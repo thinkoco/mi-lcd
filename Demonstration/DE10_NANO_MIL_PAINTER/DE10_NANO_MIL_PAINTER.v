@@ -116,7 +116,7 @@ module DE10_NANO_MIL_PAINTER(
 
       ///////// SW /////////
       input       [3:0]  SW
-                                                                                        ) ;
+      ) ;
 
 
 //=======================================================
@@ -150,8 +150,8 @@ module DE10_NANO_MIL_PAINTER(
             .vid_data_from_the_alt_vip_itc_0              ( LCD_DATA     ) , // .vid_data
             .underflow_from_the_alt_vip_itc_0             (              ) , // .underflow
             .vid_datavalid_from_the_alt_vip_itc_0         ( LCD_ENABLE   ) , // .vid_datavalid
-            .vid_v_sync_from_the_alt_vip_itc_0            ( ~LCD_RD_VSD  ) , // .vid_v_sync
-            .vid_h_sync_from_the_alt_vip_itc_0            ( ~LCD_RS_HSD  ) , // .vid_h_sync
+            .vid_v_sync_from_the_alt_vip_itc_0            ( LCD_RD_VSD   ) , // .vid_v_sync
+            .vid_h_sync_from_the_alt_vip_itc_0            ( LCD_RS_HSD   ) , // .vid_h_sync
             .vid_f_from_the_alt_vip_itc_0                 (              ) , // .vid_f
             .vid_h_from_the_alt_vip_itc_0                 (              ) , // .vid_h
             .vid_v_from_the_alt_vip_itc_0                 (              ) , // .vid_v

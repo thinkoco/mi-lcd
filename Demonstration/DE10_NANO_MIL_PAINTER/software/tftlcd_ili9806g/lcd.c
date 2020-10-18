@@ -123,6 +123,8 @@ WriteData(0x00);
 WriteData(0x00);
 WriteComm(0xF7); // 480x854
 WriteData(0x81);
+WriteComm(0xB0); // Hsync Vsync low Active
+WriteData(0x0D);
 WriteComm(0xB1); // Frame Rate
 WriteData(0x00);
 WriteData(0x10);
@@ -197,7 +199,7 @@ WriteData(0xDF);
 WriteComm(0x3A);
 WriteData(0x77);
 WriteComm(0xB6); // Interface for RAM access form System interface
-WriteData(0xA2);//02
+WriteData(0xA2);// 0xa2 RGB sync mode; 0x22 RGB DE mode ; 0x02 system interface mode
 WriteComm(0x11); //Exit Sleep
 delay_ms(50);
 WriteComm(0x29); // Display On
